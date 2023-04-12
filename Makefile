@@ -6,7 +6,7 @@
 #    By: omar <omar@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 15:54:34 by omar              #+#    #+#              #
-#    Updated: 2023/03/23 17:21:52 by omar             ###   ########.fr        #
+#    Updated: 2023/03/30 06:45:43 by omar             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,12 @@ SRCS = push_swap.c \
 		begin.c \
 		checks.c \
 		utils2.c \
+		op.c \
+		op1.c \
+		op2.c \
+		sort.c \
+		sort_helpers.c \
+		
 		
 
 OBJS = $(SRCS:.c=.o)

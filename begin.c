@@ -6,7 +6,7 @@
 /*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 23:33:28 by omar              #+#    #+#             */
-/*   Updated: 2023/03/27 19:49:41 by omar             ###   ########.fr       */
+/*   Updated: 2023/03/29 16:00:34 by omar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,15 @@ t_node	*fill_stack(char **numbers)
 {
 	t_node	*stack;
 	int		i;
-	// int		number_count;
+	int		number_count;
 
 	stack = NULL;
 	i = 0;
-	// number_count = count_numbers(numbers);
-	// printf("%i", number_count);
-	// printf("%d\n", i);
-	// printf("%s\n", numbers[0]);
-	// printf("%s\n", numbers[1]);
-	// printf("%s\n", numbers[2]);
-	while (numbers[i])
+	number_count = count_numbers(numbers);
+	while (i < number_count)
 	{
 		ft_lstadd_back(&stack, ft_lst_new(ft_atoi(numbers[i])));
 		i++;
-		// printf("%s\n", numbers[i]);
-		// printf("%d\n", i);
 	}
 	return (stack);
 }
@@ -44,9 +37,16 @@ void	begin(char **numbers, t_node **stack_a)
 		exit_error();
 	}
 	*stack_a = fill_stack(numbers);
-// 	while (stack_a)
-// 	{
-// 		printf("%d", stack_a->data);
-// 		stack_a = stack_a->next;
-// 	}
+	if (!check_duplicates(*stack_a))
+	{
+		free_dptr(numbers);
+		free_stack(*stack_a);
+		exit_error();
+	}
+	if (check_is_sorted(*stack_a))
+	{
+		free_dptr(numbers);
+		free_stack(*stack_a);
+		exit(0);
+	}
 }

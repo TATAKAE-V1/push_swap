@@ -6,7 +6,7 @@
 /*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 17:09:48 by omar              #+#    #+#             */
-/*   Updated: 2023/03/24 18:32:23 by omar             ###   ########.fr       */
+/*   Updated: 2023/03/29 15:50:53 by omar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,18 @@ int	ft_lstsize(t_node *head)
 		head = head->next;
 	}
 	return (i);
+}
+
+void	free_stack(t_node *head)
+{
+	t_node	*tmp;
+	t_node	*next;
+
+	tmp = head;
+	while (tmp)
+	{
+		next = tmp->next;
+		free(tmp);
+		tmp = next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 03:01:05 by omar              #+#    #+#             */
-/*   Updated: 2023/03/27 20:55:21 by omar             ###   ########.fr       */
+/*   Updated: 2023/03/27 21:21:58 by omar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,51 @@ void	exit_error(void)
 	exit(1);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*join_str(char *joined_str, char *s1, char *s2)
 {
-	char	*p;
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
+	size_t	s1_len;
+	size_t	s2_len;
 
 	i = 0;
 	j = 0;
-	if (!s1 || !s2)
-		return (0);
-	p = malloc((ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!p)
-		return (0);
-	while (s1[i] != '\0')
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	while (i < s1_len)
 	{
-		p[i] = s1[i];
+		joined_str[i] = s1[i];
 		i++;
 	}
-	while (s2[j] != '\0')
+	while (j < s2_len)
 	{
-		p[i] = s2[j];
+		joined_str[i] = s2[j];
 		i++;
 		j++;
 	}
-	p[i] = '\0';
-	free (s1);
-	return (p);
+	joined_str[i] = '\0';
+	return (joined_str);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	size_t	s1_len;
+	size_t	s2_len;
+	char	*joined_str;
+
+	if (!s2)
+		return (0);
+	if (!s1)
+		return (ft_strdup(s2));
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	joined_str = malloc((s1_len + s2_len + 1) * sizeof(char));
+	if (!joined_str)
+	{
+		free(s1);
+		return (0);
+	}
+	joined_str = join_str(joined_str, s1, s2);
+	free(s1);
+	return (joined_str);
 }

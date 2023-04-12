@@ -6,7 +6,7 @@
 /*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 23:41:25 by omar              #+#    #+#             */
-/*   Updated: 2023/03/27 03:42:07 by omar             ###   ########.fr       */
+/*   Updated: 2023/03/29 15:57:48 by omar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,42 @@ int	check_max_min(char **numbers)
 		if (is_max_min(numbers[i]))
 			return (0);
 		i++;
+	}
+	return (1);
+}
+
+int	check_duplicates(t_node *stack_a)
+{
+	t_node	*tmp;
+	t_node	*tmp2;
+
+	tmp = stack_a;
+	while (tmp)
+	{
+		tmp2 = tmp->next;
+		while (tmp2)
+		{
+			if (tmp->data == tmp2->data)
+				return (0);
+			tmp2 = tmp2->next;
+		}
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+int	check_is_sorted(t_node *stack)
+{
+	t_node	*tmp;
+
+	tmp = stack;
+	if (!tmp)
+		return (0);
+	while (tmp->next)
+	{
+		if (tmp->data > tmp->next->data)
+			return (0);
+		tmp = tmp->next;
 	}
 	return (1);
 }
