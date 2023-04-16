@@ -6,7 +6,7 @@
 /*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 23:56:46 by omar              #+#    #+#             */
-/*   Updated: 2023/03/13 00:23:36 by omar             ###   ########.fr       */
+/*   Updated: 2023/04/13 17:55:20 by omar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 		start++;
 		i++;
 	}
+	p[i] = '\0';
 	return (p);
 }
 
@@ -96,5 +97,6 @@ char	**ft_split(char *s, char c)
 		a = b;
 		i++;
 	}
+	p[i] = NULL;
 	return (p);
 }

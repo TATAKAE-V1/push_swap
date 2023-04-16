@@ -6,7 +6,7 @@
 /*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:03:04 by omar              #+#    #+#             */
-/*   Updated: 2023/04/01 17:55:39 by omar             ###   ########.fr       */
+/*   Updated: 2023/04/16 18:29:08 by omar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	check_is_sorted(t_node *stack);
 t_node	*ft_lst_new(int data);
 void	ft_lstadd_front(t_node **head, t_node *new);
 void	ft_lstadd_back(t_node **head, t_node *new);
-int	ft_lstsize(t_node *head);
+int		ft_lstsize(t_node *head);
 void	free_stack(t_node *head);
 //op.c
 void	swap(t_node **stack);
@@ -77,8 +77,27 @@ void	sort_two(t_node **stack_a);
 void	sort_three(t_node **stack_a);
 void	sort_four(t_node **stack_a, t_node **stack_b);
 void	sort_five(t_node **stack_a, t_node **stack_b);
+void	sort_big(t_node **stack_a, t_node **stack_b, int *tab);
 //sort_helpers.c
-int	get_max_index(t_node *stack);
-int	get_min_index(t_node *stack);
+int		get_max_index(t_node *stack);
+int		get_min_index(t_node *stack);
+int		*sort_tab(t_node *stack_a, int size);
+void	fill_tab(int **tab, t_node *stack_a);
+void	fillthis(t_node **stack_a, int *n, int *middle, int *offset);
+//sort_helpers1.c
+int		check_n(t_node **stack_a);
+void	laststack_a(t_node **stack_a, t_node **stack_b);
+int		search(t_node **stack_a, int *arr, int start, int end);
+void	updatestartend(int *start, int *end, int middle, int offset);
+void	condition(t_node **stack_a, t_node **stack_b, int *tab, int n, int middle);
+//sort_helpers2.c
+void	condition1(t_node **stack_a, int n);
+void	condition2(t_node **stack_a, int n);
+void	backtostack_a(t_node **stack_a, t_node **stack_b, int *tab);
+void	ifup(t_node **stack_a, t_node **stack_b, int *tab, int i);
+void	ifdown(t_node **stack_a, t_node **stack_b, int *tab, int i);
+//sort_helpers3.c
+int	indexstack(t_node *stack_b, int content);
+
 
 #endif

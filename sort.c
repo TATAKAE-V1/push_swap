@@ -6,7 +6,7 @@
 /*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 00:21:15 by omar              #+#    #+#             */
-/*   Updated: 2023/04/06 15:41:39 by omar             ###   ########.fr       */
+/*   Updated: 2023/04/16 17:48:05 by omar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,30 @@ void	sort_five(t_node **stack_a, t_node **stack_b)
 	pa(stack_b, stack_a);
 }
 
-
+void	sort_big(t_node **stack_a, t_node **stack_b, int *tab)
+{
+	int	n;
+	int	middle;
+	int	offset;
+	int	start;
+	int	end;
+	
+	fillthis(stack_a, &n, &middle, &offset);
+	start = middle - offset;
+	end = middle + offset;
+	while (*stack_a)
+	{
+		laststack_a(stack_a, stack_b);
+		while(*stack_a)
+		{
+			n = search(stack_a, tab, start, end);
+			if (n == ft_lstsize(*stack_a))
+			{
+				updatestartend(&start, &end, middle, offset);
+				break ;
+			}
+			condition(stack_a, stack_b, tab, n, middle);
+		}
+	}
+	backtostack_a(stack_a, stack_b, tab);
+}

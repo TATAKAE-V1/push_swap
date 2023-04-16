@@ -6,7 +6,7 @@
 #    By: omar <omar@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/07 15:54:34 by omar              #+#    #+#              #
-#    Updated: 2023/03/30 06:45:43 by omar             ###   ########.fr        #
+#    Updated: 2023/04/16 18:05:11 by omar             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,10 @@ SRCS = push_swap.c \
 		op2.c \
 		sort.c \
 		sort_helpers.c \
+		sort_helpers1.c \
+		sort_helpers2.c \
+		sort_helpers3.c \
+		
 		
 		
 
