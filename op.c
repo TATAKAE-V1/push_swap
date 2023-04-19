@@ -6,7 +6,7 @@
 /*   By: omar <omar@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:44:17 by omar              #+#    #+#             */
-/*   Updated: 2023/03/31 21:04:23 by omar             ###   ########.fr       */
+/*   Updated: 2023/04/17 17:57:18 by omar             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ void	rev_rot(t_node **stack)
 void	sa(t_node **stack_a)
 {
 	swap(stack_a);
-	ft_putstr_fd("sa\n", 2);
+	ft_putstr_fd("sa\n", 1);
 }
